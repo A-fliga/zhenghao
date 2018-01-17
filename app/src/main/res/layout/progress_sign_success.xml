@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="690px"
+        android:layout_height="665px"
+        android:src="@mipmap/sign_success_bg" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100px"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:id="@+id/sign_title"
+            android:layout_width="480px"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_333333"
+            android:textSize="36px" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/sign_success_msg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:text="签到成功！"
+                android:textColor="@color/color_18cc05"
+                android:textSize="40px" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sign_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="41px"
+            android:textColor="@color/color_ef3800"
+            android:textSize="36px" />
+
+        <Button
+            android:id="@+id/sign_btn"
+            style="@style/LoginBtn"
+            android:layout_width="210px"
+            android:layout_height="60px"
+            android:layout_marginTop="45px"
+            android:text="知道了" />
+
+    </LinearLayout>
+</FrameLayout>

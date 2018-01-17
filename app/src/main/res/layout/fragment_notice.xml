@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <View
+        android:id="@+id/recycler_line"
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:background="@color/color_f0f0f0"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:id="@+id/notice_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90px"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="384px"
+            android:layout_height="528px"
+            android:layout_gravity="center"
+            android:src="@mipmap/no_notice" />
+
+        <ImageView
+            android:id="@+id/refresh_img"
+            android:layout_width="417px"
+            android:layout_height="80px"
+            android:layout_marginTop="62px"
+            android:clickable="true"
+            android:src="@mipmap/no_notice_fresh" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:id="@+id/notice_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90px"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="447px"
+            android:layout_height="542px"
+            android:layout_gravity="center"
+            android:src="@mipmap/notice_img" />
+
+        <ImageView
+            android:id="@+id/toLogin_img"
+            android:layout_width="417px"
+            android:layout_height="80px"
+            android:layout_marginTop="62px"
+            android:clickable="true"
+            android:src="@mipmap/notice_login" />
+
+    </LinearLayout>
+
+    <org.baoshengVillage.widget.SuperSwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_notice_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10px" />
+    </org.baoshengVillage.widget.SuperSwipeRefreshLayout>
+</LinearLayout>

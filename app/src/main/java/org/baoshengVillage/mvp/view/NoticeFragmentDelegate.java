@@ -1,0 +1,113 @@
+package org.baoshengVillage.mvp.view;
+
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+import org.baoshengVillage.ItemClickListener.NoticeItemClickListener;
+import org.baoshengVillage.R;
+import org.baoshengVillage.application.UserManager;
+import org.baoshengVillage.mvp.adapter.NoticeListAdapter;
+import org.baoshengVillage.mvp.model.bean.NoticeListBean;
+import org.baoshengVillage.mvp.presenter.activity.NoticeDetailActivity;
+import org.baoshengVillage.mvp.presenter.fragment.NoticeFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.baoshengVillage.constants.Constants.IS_INIT;
+import static org.baoshengVillage.constants.Constants.IS_LOAD_MORE;
+import static org.baoshengVillage.constants.Constants.IS_REFRESH;
+
+/**
+ * Created by www on 2017/12/29.
+ */
+
+public class NoticeFragmentDelegate extends SwipeDelegate {
+    public RecyclerView recyclerView;
+    private List<NoticeListBean.ResultBean> list = new ArrayList<>();
+    private int page = 1;
+
+    @Override
+    public void onDestroy() {
+
+    }
+
+    @Override
+    public int getRootLayoutId() {
+        return R.layout.fragment_notice;
+    }
+
+    @Override
+    public void initWidget() {
+        getTitleView().setText("我的消息");
+        recyclerView = get(R.id.main_notice_recycler);
+        if (!UserManager.getInstance().alreadyLogin()) {
+            get(R.id.notice_login).setVisibility(View.VISIBLE);
+        } else get(R.id.notice_login).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onPullStarted() {
+        super.pullStarted();
+        page = 1;
+        NoticeFragment.getFragment().initData(page, IS_REFRESH);
+    }
+
+    @Override
+    public void onPullFinished() {
+        super.pullFinished();
+    }
+
+    @Override
+    public void onLoadStarted() {
+        super.loadStarted();
+        page++;
+        NoticeFragment.getFragment().initData(page, IS_LOAD_MORE);
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    @Override
+    public void onLoadFinished() {
+        super.loadFinished();
+    }
+
+    public void initList(List<NoticeListBean.ResultBean> result, int type) {
+        get(R.id.swipe_refresh).setVisibility(View.VISIBLE);
+        if (type == IS_INIT) {
+            list.clear();
+            list.addAll(result);
+        }
+        if (type == IS_REFRESH) {
+            list.clear();
+            list.addAll(result);
+        }
+        if (type == IS_LOAD_MORE) {
+            list.addAll(result);
+        }
+
+        NoticeListAdapter adapter = new NoticeListAdapter(this.getActivity(), list);
+        adapter.setOnItemClickListener(new NoticeItemClickListener() {
+            @Override
+            public void onItemClick(int position, int id) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("notice_id", id);
+                startMyActivity(NoticeDetailActivity.class, bundle);
+            }
+        });
+        setRecycler(recyclerView, adapter, true);
+    }
+
+    public void showRefresh(Boolean show) {
+        if (show) {
+            get(R.id.notice_no_data).setVisibility(View.VISIBLE);
+            get(R.id.swipe_refresh).setVisibility(View.GONE);
+        } else {
+            get(R.id.swipe_refresh).setVisibility(View.VISIBLE);
+            get(R.id.notice_no_data).setVisibility(View.GONE);
+        }
+    }
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/change_pwd_settings"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:layout_marginTop="20px"
+        android:background="@color/color_ffffff"
+        android:clickable="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29px"
+            android:text="修改密码"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="28px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="29px"
+            android:src="@mipmap/right_arrow" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/feedback_settings"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:layout_marginTop="20px"
+        android:background="@color/color_ffffff"
+        android:clickable="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29px"
+            android:text="意见反馈"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="28px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="29px"
+            android:src="@mipmap/right_arrow" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/about_baosheng_settings"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:layout_marginTop="1px"
+        android:background="@color/color_ffffff"
+        android:clickable="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29px"
+            android:text="关于宝胜村"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="28px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="29px"
+            android:src="@mipmap/right_arrow" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/logoff_settings"
+        android:layout_width="match_parent"
+        android:layout_height="104px"
+        android:layout_marginTop="30px"
+        android:background="@color/color_ffffff"
+        android:clickable="true"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29px"
+            android:text="退出登录"
+            android:textColor="@color/color_f0000"
+            android:textSize="30px" />
+
+
+    </RelativeLayout>
+</LinearLayout>

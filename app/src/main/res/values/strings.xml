@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">宝胜智慧党建</string>
+
+    //首页
+    <string name="menu_home">首页</string>
+    <string name="menu_notice">通知</string>
+    <string name="menu_mine">我的</string>
+    <string name="click_again">再按一次退出</string>
+
+    <string name="zxing_bar_name">ZxingLib</string>
+
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
+
+    <string name="recent">刚刚</string>
+    <string name="minutes_ago">分钟前</string>
+    <string name="hours_ago">小时前</string>
+    <string name="yesterday">昨天</string>
+    <string name="days_ago">天前</string>
+</resources>

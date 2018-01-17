@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <TextView
+        android:id="@+id/swipe_header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="正在刷新..." />
+
+    <ImageView
+        android:id="@+id/swipe_header_image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/swipe_header_text"
+        android:layout_toStartOf="@id/swipe_header_text"
+        android:contentDescription="@null" />
+
+    <ProgressBar
+        android:id="@+id/swipe_header_pb"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/swipe_header_text"
+        android:layout_toStartOf="@id/swipe_header_text" />
+</RelativeLayout>

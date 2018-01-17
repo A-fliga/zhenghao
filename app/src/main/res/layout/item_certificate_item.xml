@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="164px"
+    android:layout_height="91px"
+    android:layout_marginTop="30px"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/certificate_item_img"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/learning" />
+
+    <TextView
+        android:id="@+id/certificate_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16px"
+        android:text="抵押登记"
+        android:textColor="@color/color_010101"
+        android:textSize="24px" />
+</LinearLayout>

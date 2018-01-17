@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105px"
+        android:layout_marginTop="20px"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="真实姓名"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <EditText
+            android:id="@+id/identify_name_et"
+            style="@style/MyEditText"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32px"
+            android:layout_marginRight="20px"
+            android:hint="输入真实姓名"
+            android:maxLines="1"
+            android:paddingBottom="15px"
+            android:paddingTop="15px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105px"
+        android:layout_marginTop="2px"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="身份证号"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <EditText
+            android:id="@+id/identify_idCart_et"
+            style="@style/MyEditText"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32px"
+            android:layout_marginRight="20px"
+            android:hint="输入身份证号"
+            android:maxLines="1"
+            android:paddingBottom="15px"
+            android:paddingTop="15px" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="31px"
+        android:layout_marginTop="24px"
+        android:layout_marginRight="31px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="认证后才能查看我的支部内容，请填写真实数据"
+        android:textColor="@color/color_666666"
+        android:textSize="24px" />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/identify_btn"
+        android:layout_marginTop="50px"
+        android:layout_height="88px"
+        android:layout_width="690px"
+        style="@style/LoginBtn"
+        android:text="提交认证"/>
+</LinearLayout>

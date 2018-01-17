@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/mToolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/learning_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mToolbar"
+
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/color_f0f0f0" />
+
+        <TextView
+            android:id="@+id/learning_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
+            android:textColor="@color/color_4c4c4c"
+            android:textSize="48px" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="52px"
+            android:layout_marginTop="34px">
+
+            <TextView
+                android:id="@+id/learning_detail_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:text="来源："
+                android:textColor="@color/color_333333"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/learning_detail_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8px"
+                android:layout_toRightOf="@+id/learning_detail_from"
+                android:textColor="@color/color_333333"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/learning_detail_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:textColor="@color/color_333333"
+                android:textSize="24px" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/learning_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/learning_line"
+        android:layout_below="@+id/learning_top"
+        android:layout_marginBottom="20px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px" />
+
+    <View
+        android:id="@+id/learning_line"
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:layout_above="@+id/learning_ll"
+        android:background="@color/color_f0f0f0" />
+
+    <LinearLayout
+        android:id="@+id/learning_ll"
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.8"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学习时长："
+                android:textColor="@color/color_999999"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/learning_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_999999"
+                android:textSize="24px" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/learning_status"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6.2"
+            android:background="@color/color_e60000"
+            android:clickable="true"
+            android:gravity="center"
+            android:textColor="@color/color_ffffff"
+            android:textSize="36px" />
+    </LinearLayout>
+</RelativeLayout>

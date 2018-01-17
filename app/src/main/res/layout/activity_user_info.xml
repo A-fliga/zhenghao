@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350px"
+        android:background="@color/color_ffffff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/user_info_icon"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginTop="65px"
+            android:clickable="true"
+            android:src="@mipmap/normal_head" />
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/user_icon_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33px"
+            android:text="点击修改头像"
+            android:textColor="@color/color_999999"
+            android:textSize="30px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105px"
+        android:layout_marginTop="20px"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="昵称"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <EditText
+            android:id="@+id/user_name_et"
+            style="@style/MyEditText"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="112px"
+            android:layout_marginRight="20px"
+            android:maxLines="1"
+            android:paddingBottom="15px"
+            android:paddingTop="15px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105px"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="性别"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="105px"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:textSize="30px"
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="男" />
+
+            <RadioButton
+                android:textSize="30px"
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140px"
+                android:text="女" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="105px"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:text="出生日期"
+            android:textColor="@color/color_333333"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/user_info_birth_tv"
+            android:clickable="true"
+            android:layout_marginLeft="50px"
+            android:textColor="@color/color_666666"
+            android:textSize="30px"
+            android:text="请选择"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

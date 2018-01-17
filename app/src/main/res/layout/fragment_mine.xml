@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:background="@mipmap/mine_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="56px"
+                android:text="个人中心"
+                android:textColor="@color/color_ffffff"
+                android:textSize="36px" />
+
+            <ImageView
+                android:id="@+id/mine_settings_img"
+                android:layout_width="65px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="13px"
+                android:clickable="true"
+                android:src="@mipmap/settings" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/mine_identify_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/mine_icon"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="77px"
+                android:src="@mipmap/normal_head" />
+
+            <TextView
+                android:id="@+id/mine_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:layout_marginTop="117px"
+                android:layout_toRightOf="@+id/mine_icon"
+                android:textColor="@color/color_ffffff"
+                android:textSize="36px" />
+
+            <ImageView
+                android:id="@+id/party_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mine_name"
+                android:layout_marginLeft="13px"
+                android:layout_marginTop="15px"
+                android:layout_toRightOf="@id/mine_icon"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/mine_already_identification"
+                android:layout_width="26px"
+                android:layout_height="38px"
+                android:layout_marginLeft="9px"
+                android:layout_marginTop="117px"
+                android:layout_toRightOf="@+id/mine_name"
+                android:src="@mipmap/identification" />
+
+            <TextView
+                android:id="@+id/mine_show_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBaseline="@+id/mine_name"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:clickable="true"
+                android:text="查看详情 >"
+                android:textColor="@color/color_ffffff"
+                android:textSize="24px" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/mine_to_login"
+            android:layout_width="300px"
+            android:layout_height="88px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100px"
+            android:clickable="true"
+            android:src="@mipmap/to_login"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="@color/color_f5f5f5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="106px"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/mine_sign_rl"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:clickable="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="会议签到"
+                    android:textColor="@color/color_333333"
+                    android:textSize="30px" />
+
+                <ImageView
+                    android:layout_width="15px"
+                    android:layout_height="28px"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/right_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/color_f5f5f5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="106px"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/mine_integration_rl"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:clickable="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="党员积分"
+                    android:textColor="@color/color_333333"
+                    android:textSize="30px" />
+
+                <ImageView
+                    android:layout_width="15px"
+                    android:layout_height="28px"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/right_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/color_f5f5f5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="106px"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/mine_record_rl"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:clickable="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="学习记录"
+                    android:textColor="@color/color_333333"
+                    android:textSize="30px" />
+
+                <ImageView
+                    android:layout_width="15px"
+                    android:layout_height="28px"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/right_arrow" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/color_f5f5f5" />
+        </LinearLayout>
+
+
+        <!--  设置智慧党建url测试用的-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="106px"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/mine_settings_rl"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:clickable="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="设置Url"
+                    android:textColor="@color/color_333333"
+                    android:textSize="30px" />
+
+                <ImageView
+                    android:layout_width="15px"
+                    android:layout_height="28px"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/right_arrow" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/color_f5f5f5" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

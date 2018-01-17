@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="22px"
+    android:orientation="horizontal">
+
+
+    <ImageView
+        android:layout_width="70px"
+        android:layout_height="70px"
+        android:layout_marginLeft="29px"
+        android:layout_marginTop="29px"
+        android:src="@mipmap/notice_item" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35px"
+        android:layout_marginLeft="31px"
+        android:layout_marginTop="29px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_notice_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/color_333333"
+            android:textSize="34px" />
+
+        <TextView
+            android:id="@+id/item_notice_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28px"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/color_999999"
+            android:textSize="30px" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_notice_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="29px"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/color_333333"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/item_notice_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="29px"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="查看详情>>"
+                android:textColor="@color/color_f0000"
+                android:textSize="24px" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

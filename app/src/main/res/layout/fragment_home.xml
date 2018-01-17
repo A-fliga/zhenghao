@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/color_f0f0f0" />
+
+    <org.baoshengVillage.widget.SuperSwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <org.baoshengVillage.widget.NotAutoScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.bigkoo.convenientbanner.ConvenientBanner
+                    android:id="@+id/convenientBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="420px" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/spirit_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80px"
+                            android:layout_height="80px"
+                            android:src="@mipmap/spirit" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_18"
+                            android:text="十九大精神"
+                            android:textColor="@color/color_333333"
+                            android:textSize="@dimen/size_28" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/learn_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80px"
+                            android:layout_height="80px"
+                            android:src="@mipmap/learning" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_18"
+                            android:text="党员学习"
+                            android:textColor="@color/color_333333"
+                            android:textSize="@dimen/size_28" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/guide_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80px"
+                            android:layout_height="80px"
+                            android:src="@mipmap/guide" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_18"
+                            android:text="办证指南"
+                            android:textColor="@color/color_333333"
+                            android:textSize="@dimen/size_28" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dangjian_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80px"
+                            android:layout_height="80px"
+                            android:src="@mipmap/dangjian" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_18"
+                            android:text="智慧党建"
+                            android:textColor="@color/color_333333"
+                            android:textSize="@dimen/size_28" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <include layout="@layout/line_10" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="30px">
+
+                        <ImageView
+                            android:id="@+id/info_title_img"
+                            android:layout_width="8px"
+                            android:layout_height="34px"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/title" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="23px"
+                            android:layout_toRightOf="@+id/info_title_img"
+                            android:text="资讯动态"
+                            android:textColor="@color/color_333333"
+                            android:textSize="36px" />
+
+                        <TextView
+                            android:id="@+id/home_info_more_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:clickable="true"
+                            android:gravity="center_vertical"
+                            android:text="更多 >"
+                            android:textColor="@color/color_999999"
+                            android:textSize="24px" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/home_info_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10px" />
+
+            </LinearLayout>
+        </org.baoshengVillage.widget.NotAutoScrollView>
+
+    </org.baoshengVillage.widget.SuperSwipeRefreshLayout>
+</LinearLayout>
