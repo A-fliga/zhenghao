@@ -24,6 +24,7 @@ import static org.baoshengVillage.constants.Constants.PARTY_URL;
 
 /**
  * Created by www on 2018/1/9.
+ * 所有的webView页面
  */
 
 public class WebViewActivity extends ActivityPresenter<WebViewDelegate> {

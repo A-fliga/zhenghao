@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Created by www on 2018/1/11.
+ * 办证指南adapter
  */
 
 public class CertificateAdapter extends RecyclerView.Adapter<CertificateAdapter.CertificateViewHolder> {

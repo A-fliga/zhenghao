@@ -22,6 +22,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/3.
+ * 注册页面
  */
 
 public class RegisterActivity extends ActivityPresenter<RegisterDelegate> {
@@ -45,7 +46,7 @@ public class RegisterActivity extends ActivityPresenter<RegisterDelegate> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        viewDelegate.setOnClickListener(onClickListener, R.id.code_btn,R.id.confirm_btn);
+        viewDelegate.setOnClickListener(onClickListener, R.id.code_btn, R.id.confirm_btn);
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -67,11 +68,9 @@ public class RegisterActivity extends ActivityPresenter<RegisterDelegate> {
             ToastUtil.s("请输入11位手机号");
         } else if (!(pwd_et.getText().length() > 5 && pwd_et.getText().length() < 21)) {
             ToastUtil.s("请输入6-21位密码");
-        }
-        else if (code_et.getText().toString().replaceAll(" ","").isEmpty()) {
+        } else if (code_et.getText().toString().replaceAll(" ", "").isEmpty()) {
             ToastUtil.s("验证码不能为空");
-        }
-        else {
+        } else {
             PublicModel.getInstance().register(new Subscriber<BaseEntity>() {
                 @Override
                 public void onCompleted() {
@@ -80,21 +79,20 @@ public class RegisterActivity extends ActivityPresenter<RegisterDelegate> {
 
                 @Override
                 public void onError(Throwable e) {
-                    LogUtil.d("zhuce",e.toString());
+                    LogUtil.d("zhuce", e.toString());
                 }
 
                 @Override
                 public void onNext(BaseEntity baseEntity) {
-                    if(baseEntity.getCode() == 0){
-                        if(task != null)
+                    if (baseEntity.getCode() == 0) {
+                        if (task != null)
                             task.cancel();
                         ToastUtil.s("注册成功");
                         finish();
 //                       startMyActivityWithFinish(LoginActivity.class,null);
-                    }
-                    else ToastUtil.s(baseEntity.getMsg());
+                    } else ToastUtil.s(baseEntity.getMsg());
                 }
-            },num_et.getText().toString(),pwd_et.getText().toString(),code_et.getText().toString());
+            }, num_et.getText().toString(), pwd_et.getText().toString(), code_et.getText().toString());
         }
     }
 

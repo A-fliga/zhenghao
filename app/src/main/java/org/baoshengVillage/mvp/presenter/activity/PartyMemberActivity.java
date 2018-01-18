@@ -4,6 +4,7 @@ import org.baoshengVillage.mvp.view.PartyMemberDelegate;
 
 /**
  * Created by www on 2018/1/8.
+ * 为党员时的个人中心页面
  */
 
 public class PartyMemberActivity extends ActivityPresenter<PartyMemberDelegate> {

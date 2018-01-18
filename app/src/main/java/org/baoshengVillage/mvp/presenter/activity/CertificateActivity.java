@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by www on 2018/1/11.
+ * 办证指南页面
  */
 
 public class CertificateActivity extends ActivityPresenter<CertificateDelegate> {

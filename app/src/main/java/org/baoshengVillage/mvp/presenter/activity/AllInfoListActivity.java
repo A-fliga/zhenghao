@@ -17,6 +17,7 @@ import static org.baoshengVillage.constants.Constants.IS_REFRESH;
 
 /**
  * Created by www on 2018/1/10.
+ * 所有资讯列表的页面详情
  */
 
 public class AllInfoListActivity extends ActivityPresenter<AllInfoListDelegate> {

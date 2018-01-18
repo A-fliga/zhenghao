@@ -26,6 +26,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/10.
+ * 学习详情页面
  */
 
 public class LearningDetailActivity extends ActivityPresenter<LearningDetailDelegate> {

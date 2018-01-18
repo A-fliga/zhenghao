@@ -14,6 +14,7 @@ import org.baoshengVillage.utils.ToastUtil;
 
 /**
  * Created by www on 2018/1/11.
+ * 办证指南详情
  */
 
 public class CertificateDetailActivity extends ActivityPresenter<CertificateDetailDelegate> {

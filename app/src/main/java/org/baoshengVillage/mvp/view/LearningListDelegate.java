@@ -2,9 +2,11 @@ package org.baoshengVillage.mvp.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
-import org.baoshengVillage.ItemClickListener.NoticeItemClickListener;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import org.baoshengVillage.R;
 import org.baoshengVillage.mvp.adapter.LearningListAdapter;
 import org.baoshengVillage.mvp.model.bean.LearningListBean;
@@ -44,15 +46,16 @@ public class LearningListDelegate extends ViewDelegate {
     }
 
     public void initList(final List<LearningListBean.LearnListBean> beanList) {
-        LearningListAdapter adapter = new LearningListAdapter(this.getActivity(), beanList);
-        adapter.setOnItemClickListener(new NoticeItemClickListener() {
+        LearningListAdapter adapter = new LearningListAdapter(R.layout.item_learning_list, beanList);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int position, int id) {
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("LearningListId", id);
+                bundle.putInt("LearningListId", beanList.get(position).getId());
                 startMyActivity(LearningDetailActivity.class, bundle);
             }
         });
+        adapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         setRecycler((RecyclerView) get(R.id.learning_list_recycler), adapter, true);
     }
 

@@ -8,6 +8,9 @@ import org.baoshengVillage.R;
 import org.baoshengVillage.mvp.adapter.PartyIntegrationAdapter;
 import org.baoshengVillage.mvp.model.bean.PartyIntegrationBean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by www on 2018/1/8.
  */
@@ -40,10 +43,13 @@ public class PartyIntegrationDelegate extends ViewDelegate {
 
     public void initViews(PartyIntegrationBean bean) {
         if (bean != null) {
-//            ratingBar.setRating();
             party_int_name.setText(bean.getDyName());
             party_int_score.setText(bean.getGrades());
-            PartyIntegrationAdapter adapter = new PartyIntegrationAdapter(this.getActivity(), bean.getHyqd(), bean.getFpjl());
+            List beanList = new ArrayList<>();
+            beanList.addAll(bean.getHyqd());
+            beanList.addAll(bean.getFpjl());
+            PartyIntegrationAdapter adapter = new PartyIntegrationAdapter(R.layout.item_party_integration, beanList);
+            adapter.openLoadAnimation();
             setRecycler((RecyclerView) get(R.id.party_int_recycler), adapter, true);
         }
     }

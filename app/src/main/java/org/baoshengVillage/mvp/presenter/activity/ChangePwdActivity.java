@@ -21,6 +21,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/4.
+ * 改密码
  */
 
 public class ChangePwdActivity extends ActivityPresenter<RegisterDelegate> {

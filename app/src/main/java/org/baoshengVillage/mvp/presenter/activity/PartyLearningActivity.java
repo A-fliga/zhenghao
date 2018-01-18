@@ -13,6 +13,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/10.
+ * 党员学习页面
  */
 
 public class PartyLearningActivity extends ActivityPresenter<PartyLearningDelegate> {

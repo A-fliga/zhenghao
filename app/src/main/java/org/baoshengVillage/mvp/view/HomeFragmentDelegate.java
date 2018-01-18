@@ -2,21 +2,19 @@ package org.baoshengVillage.mvp.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
-import com.bigkoo.convenientbanner.listener.OnItemClickListener;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 
-import org.baoshengVillage.ItemClickListener.RecyclerItemClickListener;
 import org.baoshengVillage.R;
 import org.baoshengVillage.mvp.adapter.AllInfoListAdapter;
 import org.baoshengVillage.mvp.adapter.InfoBannerAdapter;
 import org.baoshengVillage.mvp.model.bean.InfoListBean;
 import org.baoshengVillage.mvp.presenter.activity.AllInfoDetailActivity;
 import org.baoshengVillage.mvp.presenter.fragment.HomeFragment;
-import org.baoshengVillage.utils.ToastUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.bigkoo.convenientbanner.ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL;
@@ -77,17 +75,19 @@ public class HomeFragmentDelegate extends SwipeDelegate {
     }
 
     public void initInfoList(final List<InfoListBean.ListBean> beanList) {
-        AllInfoListAdapter adapter = new AllInfoListAdapter(beanList, this.getActivity());
-        setRecycler((RecyclerView) get(R.id.home_info_recycler), adapter, false);
-        adapter.setOnItemClickListener(new RecyclerItemClickListener() {
+        AllInfoListAdapter adapter = new AllInfoListAdapter(R.layout.item_all_info, beanList);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int position) {
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(FROM_WHERE, FROM_INFO);
                 bundle.putInt(INFO_ID, beanList.get(position).getId());
                 startMyActivity(AllInfoDetailActivity.class, bundle);
             }
         });
+        adapter.openLoadAnimation();
+        setRecycler((RecyclerView) get(R.id.home_info_recycler), adapter, false);
+
     }
 
     @Override

@@ -20,6 +20,7 @@
         android:layout_marginRight="10px"
         android:layout_toLeftOf="@+id/learn_item_status"
         android:layout_toRightOf="@id/learn_item_time"
+        android:clickable="true"
         android:textColor="@color/color_333333"
         android:textSize="30px" />
 
@@ -28,5 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:clickable="true"
         android:textSize="30px" />
 </RelativeLayout>

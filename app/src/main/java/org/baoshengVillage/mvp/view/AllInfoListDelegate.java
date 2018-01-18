@@ -4,17 +4,14 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import org.baoshengVillage.ItemClickListener.NoticeItemClickListener;
-import org.baoshengVillage.ItemClickListener.RecyclerItemClickListener;
 import org.baoshengVillage.R;
 import org.baoshengVillage.mvp.adapter.AllInfoListAdapter;
-import org.baoshengVillage.mvp.adapter.NoticeListAdapter;
 import org.baoshengVillage.mvp.model.bean.InfoListBean;
-import org.baoshengVillage.mvp.model.bean.NoticeListBean;
 import org.baoshengVillage.mvp.presenter.activity.AllInfoDetailActivity;
 import org.baoshengVillage.mvp.presenter.activity.AllInfoListActivity;
-import org.baoshengVillage.mvp.presenter.activity.NoticeDetailActivity;
-import org.baoshengVillage.mvp.presenter.fragment.NoticeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,16 +93,17 @@ public class AllInfoListDelegate extends SwipeDelegate {
             list.addAll(result);
         }
 
-        AllInfoListAdapter adapter = new AllInfoListAdapter(list, this.getActivity());
-        adapter.setOnItemClickListener(new NoticeItemClickListener() {
+        AllInfoListAdapter adapter = new AllInfoListAdapter(R.layout.item_all_info, list);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int position, int id) {
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt(INFO_ID, id);
-                bundle.putInt(FROM_WHERE,FROM_INFO);
+                bundle.putInt(INFO_ID, list.get(position).getId());
+                bundle.putInt(FROM_WHERE, FROM_INFO);
                 startMyActivity(AllInfoDetailActivity.class, bundle);
             }
         });
+        adapter.openLoadAnimation();
         setRecycler(recyclerView, adapter, true);
     }
 

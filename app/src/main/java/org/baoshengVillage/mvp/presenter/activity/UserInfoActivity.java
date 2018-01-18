@@ -48,6 +48,7 @@ import static org.baoshengVillage.constants.Constants.USER_PWD;
 
 /**
  * Created by www on 2018/1/8.
+ * 个人中心页面
  */
 
 public class UserInfoActivity extends ActivityPresenter<UserInfoDelegate> {

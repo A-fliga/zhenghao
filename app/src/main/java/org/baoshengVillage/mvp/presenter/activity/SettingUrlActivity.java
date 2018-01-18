@@ -13,6 +13,7 @@ import static org.baoshengVillage.constants.Constants.PARTY_URL;
 
 /**
  * Created by www on 2018/1/15.
+ * 设置智慧党建的页面，调试用
  */
 
 public class SettingUrlActivity extends ActivityPresenter<SettingUrlDelegate> {

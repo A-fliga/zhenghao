@@ -16,6 +16,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/10.
+ * 学习列表页面
  */
 
 public class LearningListActivity extends ActivityPresenter<LearningListDelegate> {

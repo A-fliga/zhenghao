@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import org.baoshengVillage.ItemClickListener.NoticeItemClickListener;
 import org.baoshengVillage.R;
 import org.baoshengVillage.application.UserManager;
@@ -75,7 +77,7 @@ public class NoticeFragmentDelegate extends SwipeDelegate {
         super.loadFinished();
     }
 
-    public void initList(List<NoticeListBean.ResultBean> result, int type) {
+    public void initList(final List<NoticeListBean.ResultBean> result, int type) {
         get(R.id.swipe_refresh).setVisibility(View.VISIBLE);
         if (type == IS_INIT) {
             list.clear();
@@ -88,16 +90,16 @@ public class NoticeFragmentDelegate extends SwipeDelegate {
         if (type == IS_LOAD_MORE) {
             list.addAll(result);
         }
-
-        NoticeListAdapter adapter = new NoticeListAdapter(this.getActivity(), list);
-        adapter.setOnItemClickListener(new NoticeItemClickListener() {
+        NoticeListAdapter adapter = new NoticeListAdapter(R.layout.item_notice_list, list);
+        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
-            public void onItemClick(int position, int id) {
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("notice_id", id);
+                bundle.putInt("notice_id", result.get(position).getId());
                 startMyActivity(NoticeDetailActivity.class, bundle);
             }
         });
+        adapter.openLoadAnimation();
         setRecycler(recyclerView, adapter, true);
     }
 

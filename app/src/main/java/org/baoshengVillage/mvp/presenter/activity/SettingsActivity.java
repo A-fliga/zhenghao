@@ -20,6 +20,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/8.
+ * 设置页面
  */
 
 public class SettingsActivity extends ActivityPresenter<SettingsDelegate> {
@@ -55,14 +56,14 @@ public class SettingsActivity extends ActivityPresenter<SettingsDelegate> {
                     startMyActivity(WebViewActivity.class, bundle);
                     break;
                 case R.id.logoff_settings:
-                    toLogOff();
+                    toLogOut();
                     break;
             }
         }
     };
 
 
-    private void toLogOff() {
+    private void toLogOut() {
         PublicModel.getInstance().exit(new Subscriber<BaseEntity>() {
             @Override
             public void onCompleted() {

@@ -17,6 +17,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/2.
+ * 通知详情页面
  */
 
 public class NoticeDetailActivity extends ActivityPresenter<NoticeDetailDelegate> {

@@ -11,6 +11,7 @@ import org.baoshengVillage.R;
 
 /**
  * Created by www on 2017/11/23.
+ * 轮播图
  */
 
 public class InfoBannerAdapter implements Holder<String> {

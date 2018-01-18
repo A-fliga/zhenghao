@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * Created by www on 2018/1/10.
+ * 党员学习的类型adapter
  */
 
 public class LearningTypeAdapter extends RecyclerView.Adapter<LearningTypeAdapter.LearningListViewHolder> {

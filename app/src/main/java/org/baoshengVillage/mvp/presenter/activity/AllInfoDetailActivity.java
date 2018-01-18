@@ -19,12 +19,12 @@ import rx.Subscriber;
 import static org.baoshengVillage.constants.Constants.BANNER_ID;
 import static org.baoshengVillage.constants.Constants.FROM_BANNER;
 import static org.baoshengVillage.constants.Constants.FROM_INFO;
-import static org.baoshengVillage.constants.Constants.FROM_SPIRIT;
 import static org.baoshengVillage.constants.Constants.FROM_WHERE;
 import static org.baoshengVillage.constants.Constants.INFO_ID;
 
 /**
  * Created by www on 2018/1/9.
+ * 所有资讯类的页面详情
  */
 
 public class AllInfoDetailActivity extends ActivityPresenter<AllInfoDetailDelegate> {

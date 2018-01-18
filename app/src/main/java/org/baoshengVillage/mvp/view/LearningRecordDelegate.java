@@ -1,6 +1,9 @@
 package org.baoshengVillage.mvp.view;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import org.baoshengVillage.R;
 import org.baoshengVillage.mvp.adapter.LearningRecordAdapter;
@@ -33,7 +36,8 @@ public class LearningRecordDelegate extends ViewDelegate {
         if (beanList.size() == 0) {
             ToastUtil.l("暂无记录");
         } else {
-            LearningRecordAdapter adapter = new LearningRecordAdapter(getActivity(), beanList);
+            LearningRecordAdapter adapter = new LearningRecordAdapter(R.layout.item_learning_record, beanList);
+            adapter.openLoadAnimation();
             setRecycler((RecyclerView) get(R.id.learning_recycler), adapter, true);
         }
     }

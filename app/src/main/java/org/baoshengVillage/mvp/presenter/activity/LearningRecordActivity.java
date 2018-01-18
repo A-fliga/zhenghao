@@ -12,6 +12,7 @@ import rx.Subscriber;
 
 /**
  * Created by www on 2018/1/8.
+ * 学习记录页面
  */
 
 public class LearningRecordActivity extends ActivityPresenter<LearningRecordDelegate> {

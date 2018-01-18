@@ -9,6 +9,7 @@ import org.baoshengVillage.mvp.view.SpiritDelegate;
 
 /**
  * Created by www on 2018/1/10.
+ * 十九大页面
  */
 
 public class SpiritActivity extends ActivityPresenter<SpiritDelegate> {
