@@ -65,7 +65,7 @@
 
     </LinearLayout>
 
-    <org.baoshengVillage.widget.SuperSwipeRefreshLayout
+    <org.zhenghao.widget.SuperSwipeRefreshLayout
         android:id="@+id/swipe_refresh"
 
         android:layout_width="match_parent"
@@ -76,5 +76,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px" />
-    </org.baoshengVillage.widget.SuperSwipeRefreshLayout>
+    </org.zhenghao.widget.SuperSwipeRefreshLayout>
 </LinearLayout>

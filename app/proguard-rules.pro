@@ -116,8 +116,8 @@
     public static final android.os.Parcelable$Creator *;
 }
 
--keep class org.baoshengVillage.mvp.model.bean.**{ *; }
--keep public class * implements org.baoshengVillage.mvp.view.IDelegate
+-keep class zhenghao.mvp.model.bean.**{ *; }
+-keep public class * implements zhenghao.mvp.view.IDelegate
 
 
 #极光混淆

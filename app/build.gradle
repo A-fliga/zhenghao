@@ -16,7 +16,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "org.baoshengVillage"
+        applicationId "org.zhenghao"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
@@ -30,7 +30,7 @@ android {
         }
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "c76b76daf5dc9ca3f58f40f2", //JPush上注册的包名对应的appkey.
+                JPUSH_APPKEY : "5fe63b06790bf8e168515d6e", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
@@ -63,8 +63,8 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField "String", "HOST", '"http://192.168.5.2:8083/"'
-//            buildConfigField "String", "HOST", '"http://119.23.209.82:8080/"'
+//            buildConfigField "String", "HOST", '"http://192.168.5.2:8083/"'
+            buildConfigField "String", "HOST", '"http://119.23.209.82:8080/"'
         }
         release {
 

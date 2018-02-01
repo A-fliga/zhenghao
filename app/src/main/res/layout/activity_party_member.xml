@@ -7,7 +7,7 @@
 
     <include layout="@layout/toolbar" />
 
-    <org.baoshengVillage.widget.NotAutoScrollView
+    <org.zhenghao.widget.NotAutoScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -141,5 +141,5 @@
                 </ScrollView>
             </LinearLayout>
         </LinearLayout>
-    </org.baoshengVillage.widget.NotAutoScrollView>
+    </org.zhenghao.widget.NotAutoScrollView>
 </LinearLayout>

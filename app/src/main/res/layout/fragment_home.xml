@@ -11,12 +11,12 @@
         android:layout_height="2px"
         android:background="@color/color_f0f0f0" />
 
-    <org.baoshengVillage.widget.SuperSwipeRefreshLayout
+    <org.zhenghao.widget.SuperSwipeRefreshLayout
         android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <org.baoshengVillage.widget.NotAutoScrollView
+        <org.zhenghao.widget.NotAutoScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none">
@@ -178,7 +178,7 @@
                     android:layout_marginBottom="10px" />
 
             </LinearLayout>
-        </org.baoshengVillage.widget.NotAutoScrollView>
+        </org.zhenghao.widget.NotAutoScrollView>
 
-    </org.baoshengVillage.widget.SuperSwipeRefreshLayout>
+    </org.zhenghao.widget.SuperSwipeRefreshLayout>
 </LinearLayout>
