@@ -38,6 +38,15 @@ public class UserBean implements Parcelable {
     private String uuid;
     private PartyMemberInformationBean partyMemberInformation;
     private long createTime;
+    private VillageBean village;
+
+    public VillageBean getVillage() {
+        return village;
+    }
+
+    public void setVillage(VillageBean village) {
+        this.village = village;
+    }
 
     public int getId() {
         return id;
@@ -133,6 +142,162 @@ public class UserBean implements Parcelable {
 
     public void setCreateTime(long createTime) {
         this.createTime = createTime;
+    }
+
+    public static class VillageBean implements Parcelable {
+
+        /**
+         * createBy : lpj
+         * updateDate : 1517537062000
+         * address : address
+         * names : mio
+         * updateBy : lpj
+         * details : resource/html/2018/01/16/1516099155406309.html
+         * id : 2
+         * state : 0
+         * parentId : 0
+         * createDate : 1516067911000
+         */
+
+        public String createBy;
+        public long updateDate;
+        public String address;
+        public String names;
+        public String updateBy;
+        public String details;
+
+        public String getCreateBy() {
+            return createBy;
+        }
+
+        public void setCreateBy(String createBy) {
+            this.createBy = createBy;
+        }
+
+        public long getUpdateDate() {
+            return updateDate;
+        }
+
+        public void setUpdateDate(long updateDate) {
+            this.updateDate = updateDate;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getNames() {
+            return names;
+        }
+
+        public void setNames(String names) {
+            this.names = names;
+        }
+
+        public String getUpdateBy() {
+            return updateBy;
+        }
+
+        public void setUpdateBy(String updateBy) {
+            this.updateBy = updateBy;
+        }
+
+        public String getDetails() {
+            return details;
+        }
+
+        public void setDetails(String details) {
+            this.details = details;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public int getState() {
+            return state;
+        }
+
+        public void setState(int state) {
+            this.state = state;
+        }
+
+        public int getParentId() {
+            return parentId;
+        }
+
+        public void setParentId(int parentId) {
+            this.parentId = parentId;
+        }
+
+        public long getCreateDate() {
+            return createDate;
+        }
+
+        public void setCreateDate(long createDate) {
+            this.createDate = createDate;
+        }
+
+        public String id;
+        public int state;
+        public int parentId;
+        public long createDate;
+
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.createBy);
+            dest.writeLong(this.updateDate);
+            dest.writeString(this.address);
+            dest.writeString(this.names);
+            dest.writeString(this.updateBy);
+            dest.writeString(this.details);
+            dest.writeString(this.id);
+            dest.writeInt(this.state);
+            dest.writeInt(this.parentId);
+            dest.writeLong(this.createDate);
+        }
+
+        public VillageBean() {
+        }
+
+        protected VillageBean(Parcel in) {
+            this.createBy = in.readString();
+            this.updateDate = in.readLong();
+            this.address = in.readString();
+            this.names = in.readString();
+            this.updateBy = in.readString();
+            this.details = in.readString();
+            this.id = in.readString();
+            this.state = in.readInt();
+            this.parentId = in.readInt();
+            this.createDate = in.readLong();
+        }
+
+        public static final Creator<VillageBean> CREATOR = new Creator<VillageBean>() {
+            @Override
+            public VillageBean createFromParcel(Parcel source) {
+                return new VillageBean(source);
+            }
+
+            @Override
+            public VillageBean[] newArray(int size) {
+                return new VillageBean[size];
+            }
+        };
     }
 
     public static class PartyMemberInformationBean implements Parcelable {
@@ -432,6 +597,9 @@ public class UserBean implements Parcelable {
         };
     }
 
+    public UserBean() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -451,9 +619,7 @@ public class UserBean implements Parcelable {
         dest.writeString(this.uuid);
         dest.writeParcelable(this.partyMemberInformation, flags);
         dest.writeLong(this.createTime);
-    }
-
-    public UserBean() {
+        dest.writeParcelable(this.village, flags);
     }
 
     protected UserBean(Parcel in) {
@@ -469,9 +635,10 @@ public class UserBean implements Parcelable {
         this.uuid = in.readString();
         this.partyMemberInformation = in.readParcelable(PartyMemberInformationBean.class.getClassLoader());
         this.createTime = in.readLong();
+        this.village = in.readParcelable(VillageBean.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<UserBean> CREATOR = new Parcelable.Creator<UserBean>() {
+    public static final Creator<UserBean> CREATOR = new Creator<UserBean>() {
         @Override
         public UserBean createFromParcel(Parcel source) {
             return new UserBean(source);

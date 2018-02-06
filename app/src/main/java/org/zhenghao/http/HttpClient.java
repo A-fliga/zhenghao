@@ -6,9 +6,10 @@ import com.google.gson.GsonBuilder;
 
 import org.zhenghao.BuildConfig;
 import org.zhenghao.application.MyApplication;
+import org.zhenghao.application.UserManager;
 import org.zhenghao.constants.Constants;
 import org.zhenghao.http.cookie.CookiesManager;
-import org.zhenghao.mvp.model.bean.AboutBaoShengBean;
+import org.zhenghao.mvp.model.bean.AboutVillageBean;
 import org.zhenghao.mvp.model.bean.BannerAndInfoDetailBean;
 import org.zhenghao.mvp.model.bean.BannerBean;
 import org.zhenghao.mvp.model.bean.BaseEntity;
@@ -125,7 +126,7 @@ public final class HttpClient {
         if (sHttpClient == null) {
             synchronized (HttpClient.class) {
                 if (sHttpClient == null) {
-                    sHttpClient = new HttpClient(BuildConfig.HOST + "baoshengcun/appApi/");
+                    sHttpClient = new HttpClient(BuildConfig.HOST + "/wzt/appApi/");
                 }
             }
         }
@@ -181,14 +182,19 @@ public final class HttpClient {
         return mGson;
     }
 
+    private String getVillageId() {
+        if (UserManager.getInstance().getUserBean() != null && UserManager.getInstance().getUserBean().getVillage() != null) {
+            return UserManager.getInstance().getUserBean().getVillage().getId();
+        } else return null;
+    }
 
     /**
      * 注册
      */
-    public void register(Subscriber<BaseEntity> subscriber, String phone, String password, String verifyCode) {
+    public void register(Subscriber<BaseEntity> subscriber, String phone, String password, String verifyCode, String villageId) {
         String result = MD5Util.md5crypt(password);
         Observable observable = mApi.register(
-                getMapRequestBody(getBodyMap(getStrings("phone,verifyCode,password"), getStrings(phone, verifyCode, result))));
+                getMapRequestBody(getBodyMap(getStrings("phone,verifyCode,password,villageId"), getStrings(phone, verifyCode, result, villageId))));
         toSubscribe(observable, subscriber);
     }
 
@@ -256,10 +262,10 @@ public final class HttpClient {
     }
 
     /**
-     * 获取学习记录
+     * 村社详情
      */
-    public void aboutBaoSheng(Subscriber<BaseEntity<AboutBaoShengBean>> subscriber) {
-        Observable observable = mApi.aboutBaoSheng();
+    public void aboutVillage(Subscriber<BaseEntity<AboutVillageBean>> subscriber) {
+        Observable observable = mApi.aboutVillage(getMapRequestBody(getBodyMap(getStrings("villageId"), getStrings(getVillageId()))));
         toSubscribe(observable, subscriber);
     }
 
@@ -275,8 +281,8 @@ public final class HttpClient {
      * 通知列表
      */
     public void getNoticeList(Subscriber<NoticeListBean> subscriber, int informFor, int pageIndex) {
-        Observable observable = mApi.getNoticeList(getMapRequestBody(getBodyMap(getStrings("informFor,pageIndex,pageSize"),
-                getStrings(String.valueOf(informFor), String.valueOf(pageIndex), "10"))));
+        Observable observable = mApi.getNoticeList(getMapRequestBody(getBodyMap(getStrings("informFor,pageIndex,pageSize,villageId"),
+                getStrings(String.valueOf(informFor), String.valueOf(pageIndex), "10", getVillageId()))));
         toSubscribe(observable, subscriber);
 
     }
@@ -309,7 +315,15 @@ public final class HttpClient {
      * 获取资讯列表
      */
     public void getInfoList(Subscriber<BaseEntity<InfoListBean>> subscriber, String typeId, String pageIndex) {
-        Observable observable = mApi.getInfoList(getMapRequestBody(getBodyMap(getStrings("typeId,pageIndex"), getStrings(typeId, pageIndex))));
+        HashMap<String, String> bodyMap = new HashMap<>();
+        if (UserManager.getInstance().getUserBean() != null && UserManager.getInstance().getUserBean().getVillage() != null) {
+            bodyMap.put("villageId", getVillageId());
+        }
+        if (typeId != null) {
+            bodyMap.put("typeId", typeId);
+        }
+        bodyMap.put("pageIndex", pageIndex);
+        Observable observable = mApi.getInfoList(getMapRequestBody(bodyMap));
         toSubscribe(observable, subscriber);
     }
 
@@ -334,7 +348,8 @@ public final class HttpClient {
      * 获取党员学习类型
      */
     public void getLearningType(Subscriber<PartyLearningBean> subscriber) {
-        Observable observable = mApi.getLearningType();
+        Observable observable = mApi.getLearningType(getMapRequestBody(getBodyMap(getStrings("villageId"),
+                getStrings(getVillageId()))));
         toSubscribe(observable, subscriber);
     }
 
@@ -342,8 +357,8 @@ public final class HttpClient {
      * 获取党员学习列表
      */
     public void getLearningList(Subscriber<BaseEntity<LearningListBean>> subscriber, String userId, int learningTypeId) {
-        Observable observable = mApi.getLearningList(getMapRequestBody(getBodyMap(getStrings("userId,learningTypeId"),
-                getStrings(userId, String.valueOf(learningTypeId)))));
+        Observable observable = mApi.getLearningList(getMapRequestBody(getBodyMap(getStrings("userId,learningTypeId,villageId"),
+                getStrings(userId, String.valueOf(learningTypeId), getVillageId()))));
         toSubscribe(observable, subscriber);
     }
 

@@ -130,7 +130,7 @@ public class MainActivity extends ActivityPresenter<MainActivityDelegate> {
     private void initView() {
         viewPager = viewDelegate.get(R.id.content_pager);
         viewPager.setOffscreenPageLimit(2);
-        MainActivity.mFragmentPagerAdapter mFragmentPagerAdapter = new mFragmentPagerAdapter(getSupportFragmentManager(), getFragments());
+        mFragmentPagerAdapter mFragmentPagerAdapter = new mFragmentPagerAdapter(getSupportFragmentManager(), getFragments());
         viewPager.setAdapter(mFragmentPagerAdapter);
         navigation = viewDelegate.get(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

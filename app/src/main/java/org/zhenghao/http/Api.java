@@ -1,7 +1,7 @@
 package org.zhenghao.http;
 
 
-import org.zhenghao.mvp.model.bean.AboutBaoShengBean;
+import org.zhenghao.mvp.model.bean.AboutVillageBean;
 import org.zhenghao.mvp.model.bean.BannerAndInfoDetailBean;
 import org.zhenghao.mvp.model.bean.BannerBean;
 import org.zhenghao.mvp.model.bean.BaseEntity;
@@ -101,11 +101,11 @@ public interface Api {
     Observable<BaseEntity> feedBack(@Body RequestBody feedBack);
 
     /**
-     * 关于宝胜村
+     * 村社详情
      */
     @Headers({"Content-Type: application/json"})
-    @POST("aboutBS")
-    Observable<BaseEntity<AboutBaoShengBean>> aboutBaoSheng();
+    @POST("aboutVillage")
+    Observable<BaseEntity<AboutVillageBean>> aboutVillage(@Body RequestBody aboutVillage);
 
     /**
      * 会议签到
@@ -149,8 +149,8 @@ public interface Api {
      * 获取资讯列表
      */
     @Headers({"Content-Type: application/json"})
-    @POST("getNineteenSpiritList")
-    Observable<BaseEntity<InfoListBean>> getInfoList(@Body RequestBody getNineteenSpiritList);
+    @POST("getArticleList")
+    Observable<BaseEntity<InfoListBean>> getInfoList(@Body RequestBody getArticleList);
 
     /**
      * 轮播图详情
@@ -163,15 +163,15 @@ public interface Api {
      * 资讯详情
      */
     @Headers({"Content-Type: application/json"})
-    @POST("getNineteenSpiritDetail")
-    Observable<BaseEntity<BannerAndInfoDetailBean>> showInfoDetail(@Body RequestBody getNineteenSpiritDetail);
+    @POST("getArticleDetail")
+    Observable<BaseEntity<BannerAndInfoDetailBean>> showInfoDetail(@Body RequestBody getArticleDetail);
 
     /**
      * 获取党员学习类型
      */
     @Headers({"Content-Type: application/json"})
     @POST("learn")
-    Observable<PartyLearningBean> getLearningType();
+    Observable<PartyLearningBean> getLearningType(@Body RequestBody learnType);
 
     /**
      * 获取党员学习列表

@@ -81,7 +81,7 @@ public class AllInfoListActivity extends ActivityPresenter<AllInfoListDelegate> 
                 }
                 afterLoadOrRefresh(action);
             }
-        }, TYPE, pageIndex);
+        }, String.valueOf(TYPE), pageIndex);
     }
 
     private void afterLoadOrRefresh(int type) {

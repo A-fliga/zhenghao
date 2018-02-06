@@ -92,7 +92,8 @@ public class RegisterActivity extends ActivityPresenter<RegisterDelegate> {
 //                       startMyActivityWithFinish(LoginActivity.class,null);
                     } else ToastUtil.s(baseEntity.getMsg());
                 }
-            }, num_et.getText().toString(), pwd_et.getText().toString(), code_et.getText().toString());
+            }, num_et.getText().toString(), pwd_et.getText().toString(), code_et.getText().toString(),"asd");
+            // TODO 增加村社Id
         }
     }
 

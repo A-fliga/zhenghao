@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="29px"
-            android:text="关于宝胜村"
+            android:text="村社详情"
             android:textColor="@color/color_333333"
             android:textSize="30px" />
 

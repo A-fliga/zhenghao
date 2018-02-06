@@ -9,6 +9,9 @@ import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.zhenghao.R;
 import org.zhenghao.application.UserManager;
 import org.zhenghao.mvp.model.PublicModel;
@@ -43,6 +46,7 @@ import static org.zhenghao.constants.Constants.FROM_WHERE;
 
 public class HomeFragment extends FragmentPresenter<HomeFragmentDelegate> {
     private static HomeFragment fragment;
+    private boolean firstResume = true;
 
     @Override
     public Class<HomeFragmentDelegate> getDelegateClass() {
@@ -68,7 +72,25 @@ public class HomeFragment extends FragmentPresenter<HomeFragmentDelegate> {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        EventBus.getDefault().register(this);
         initHome();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!firstResume) {
+            viewDelegate.getConvenientBanner().startTurning(5000);
+        }
+        firstResume = false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (viewDelegate.getConvenientBanner() != null) {
+            viewDelegate.getConvenientBanner().stopTurning();
+        }
     }
 
     public static HomeFragment getInstance() {
@@ -80,6 +102,12 @@ public class HomeFragment extends FragmentPresenter<HomeFragmentDelegate> {
         //获取首页轮播图
         getBanner();
         getInfoList();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     private void getBanner() {
@@ -145,14 +173,13 @@ public class HomeFragment extends FragmentPresenter<HomeFragmentDelegate> {
                     viewDelegate.initInfoList(infoListBeanBaseEntity.getResult().getList());
                 }
             }
-        }, 28, 1);
+        }, null, 1);
     }
 
 
     private void initView() {
         viewDelegate.setOnClickListener(mOnclickListener, R.id.toolBar_img_left_rl, R.id.spirit_ll, R.id.learn_ll, R.id.guide_ll,
                 R.id.dangjian_ll, R.id.home_info_more_tv);
-
     }
 
     private void startScanner() {
@@ -198,6 +225,14 @@ public class HomeFragment extends FragmentPresenter<HomeFragmentDelegate> {
             }
         }
     };
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN) //在ui线程执行
+    public void loginChange(Boolean isChange) {
+        if (isChange) {
+            getInfoList();
+        }
+    }
 
     private void toMoreInfo() {
         Bundle bundle = new Bundle();

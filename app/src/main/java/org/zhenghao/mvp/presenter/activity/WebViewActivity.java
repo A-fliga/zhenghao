@@ -12,7 +12,7 @@ import android.webkit.WebViewClient;
 
 import org.zhenghao.R;
 import org.zhenghao.mvp.model.PublicModel;
-import org.zhenghao.mvp.model.bean.AboutBaoShengBean;
+import org.zhenghao.mvp.model.bean.AboutVillageBean;
 import org.zhenghao.mvp.model.bean.BaseEntity;
 import org.zhenghao.mvp.view.WebViewDelegate;
 import org.zhenghao.utils.ProgressDialogUtil;
@@ -51,8 +51,8 @@ public class WebViewActivity extends ActivityPresenter<WebViewDelegate> {
             ProgressDialogUtil.instance().startLoad();
             switch (WHAT) {
                 case ABOUT:
-                    viewDelegate.setTitle("关于宝胜村");
-                    showAboutBaoSheng();
+                    viewDelegate.setTitle("村社详情");
+                    showAboutVillage();
                     break;
                 case PARTY:
                     initPartyView();
@@ -77,8 +77,8 @@ public class WebViewActivity extends ActivityPresenter<WebViewDelegate> {
     }
 
 
-    private void showAboutBaoSheng() {
-        PublicModel.getInstance().aboutBaoSheng(new Subscriber<BaseEntity<AboutBaoShengBean>>() {
+    private void showAboutVillage() {
+        PublicModel.getInstance().aboutVillage(new Subscriber<BaseEntity<AboutVillageBean>>() {
             @Override
             public void onCompleted() {
 
@@ -90,11 +90,11 @@ public class WebViewActivity extends ActivityPresenter<WebViewDelegate> {
             }
 
             @Override
-            public void onNext(BaseEntity<AboutBaoShengBean> aboutBaoShengBeanBaseEntity) {
-                if (aboutBaoShengBeanBaseEntity.getCode() != 0) {
-                    ToastUtil.s(aboutBaoShengBeanBaseEntity.getMsg());
+            public void onNext(BaseEntity<AboutVillageBean> aboutVillageBeanBaseEntity) {
+                if (aboutVillageBeanBaseEntity.getCode() != 0) {
+                    ToastUtil.s(aboutVillageBeanBaseEntity.getMsg());
                 } else {
-                    initWebView(aboutBaoShengBeanBaseEntity.getResult().getContentUrl());
+                    initWebView(aboutVillageBeanBaseEntity.getResult().getDetails());
                 }
             }
         });

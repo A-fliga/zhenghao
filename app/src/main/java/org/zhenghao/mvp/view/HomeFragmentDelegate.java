@@ -8,8 +8,10 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
+import org.zhenghao.ItemClickListener.ItemClickListener;
 import org.zhenghao.R;
 import org.zhenghao.mvp.adapter.AllInfoListAdapter;
+import org.zhenghao.mvp.adapter.HomeListAdapter;
 import org.zhenghao.mvp.adapter.InfoBannerAdapter;
 import org.zhenghao.mvp.model.bean.InfoListBean;
 import org.zhenghao.mvp.presenter.activity.AllInfoDetailActivity;
@@ -70,24 +72,24 @@ public class HomeFragmentDelegate extends SwipeDelegate {
                 .startTurning(5000);
     }
 
+
     public ConvenientBanner getConvenientBanner() {
         return convenientBanner;
     }
 
     public void initInfoList(final List<InfoListBean.ListBean> beanList) {
-        AllInfoListAdapter adapter = new AllInfoListAdapter(R.layout.item_all_info, beanList);
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        //这里不能用通用的adapter，切换登录状态会有bug
+        HomeListAdapter adapter = new HomeListAdapter(beanList, this.getActivity());
+        setRecycler((RecyclerView) get(R.id.home_info_recycler), adapter, false);
+        adapter.setOnItemClickListener(new ItemClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+            public void onItemClick(int position) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(FROM_WHERE, FROM_INFO);
                 bundle.putInt(INFO_ID, beanList.get(position).getId());
                 startMyActivity(AllInfoDetailActivity.class, bundle);
             }
         });
-        adapter.openLoadAnimation();
-        setRecycler((RecyclerView) get(R.id.home_info_recycler), adapter, false);
-
     }
 
     @Override

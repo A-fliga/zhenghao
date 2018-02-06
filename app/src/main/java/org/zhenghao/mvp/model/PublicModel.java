@@ -2,7 +2,7 @@ package org.zhenghao.mvp.model;
 
 
 import org.zhenghao.http.HttpClient;
-import org.zhenghao.mvp.model.bean.AboutBaoShengBean;
+import org.zhenghao.mvp.model.bean.AboutVillageBean;
 import org.zhenghao.mvp.model.bean.BannerAndInfoDetailBean;
 import org.zhenghao.mvp.model.bean.BannerBean;
 import org.zhenghao.mvp.model.bean.BaseEntity;
@@ -81,9 +81,9 @@ public class PublicModel implements IModel {
     /**
      * 注册
      */
-    public void register(Subscriber<BaseEntity> subscriber, String phone, String pwd, String verifyCode) {
+    public void register(Subscriber<BaseEntity> subscriber, String phone, String pwd, String verifyCode, String villageId) {
         if (NetUtil.isConnect()) {
-            HttpClient.getInstance().register(subscriber, phone, pwd, verifyCode);
+            HttpClient.getInstance().register(subscriber, phone, pwd, verifyCode,villageId);
         }
     }
 
@@ -150,11 +150,11 @@ public class PublicModel implements IModel {
     }
 
     /**
-     * 关于宝胜村
+     * 村社详情
      */
-    public void aboutBaoSheng(Subscriber<BaseEntity<AboutBaoShengBean>> subscriber) {
+    public void aboutVillage(Subscriber<BaseEntity<AboutVillageBean>> subscriber) {
         if (NetUtil.isConnect()) {
-            HttpClient.getInstance().aboutBaoSheng(subscriber);
+            HttpClient.getInstance().aboutVillage(subscriber);
         }
     }
 
@@ -206,9 +206,9 @@ public class PublicModel implements IModel {
     /**
      * 获取资讯列表
      */
-    public void getInfoList(Subscriber<BaseEntity<InfoListBean>> subscriber, int typeId, int pageIndex) {
+    public void getInfoList(Subscriber<BaseEntity<InfoListBean>> subscriber, String typeId, int pageIndex) {
         if (NetUtil.isConnect()) {
-            HttpClient.getInstance().getInfoList(subscriber, String.valueOf(typeId), String.valueOf(pageIndex));
+            HttpClient.getInstance().getInfoList(subscriber, typeId, String.valueOf(pageIndex));
         }
     }
 
